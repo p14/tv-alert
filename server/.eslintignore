@@ -1,0 +1,21 @@
+# Node Modules
+node_modules
+
+# Build Files
+dist
+
+# Miscellaneous
+.env
+.eslintrc.js
+*.spec.ts
+
+# Editor Directories and Files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

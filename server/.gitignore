@@ -1,0 +1,12 @@
+# Node Modules
+node_modules
+
+# Build Files
+dist
+
+# Optional npm cache directory
+.npm
+
+# Miscellaneous
+.env
+.eslintrc.js

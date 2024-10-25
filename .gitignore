@@ -1,0 +1,10 @@
+# Node Modules
+node_modules
+**/node_modules
+
+# Build Files
+dist
+**/dist
+
+# Miscellaneous
+.env

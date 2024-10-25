@@ -1,0 +1,40 @@
+{
+    "name": "tv-alert-server",
+    "version": "0.0.1",
+    "main": "server.js",
+    "scripts": {
+        "start": "ts-node src/server.ts",
+        "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Joseph Perez",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^1.7.7",
+        "bcrypt": "^5.1.0",
+        "cors": "^2.8.5",
+        "dotenv": "^16.0.3",
+        "eslint": "^8.36.0",
+        "express": "^4.18.2",
+        "inversify": "^6.0.1",
+        "inversify-binding-decorators": "^4.0.0",
+        "inversify-express-utils": "^6.4.3",
+        "mongoose": "^6.9.1",
+        "node-cache": "^5.1.2",
+        "node-cron": "^3.0.3",
+        "nodemailer": "^6.9.15",
+        "p-limit": "3.1.0",
+        "reflect-metadata": "^0.1.13",
+        "ts-node": "^10.9.1"
+    },
+    "devDependencies": {
+        "@types/bcrypt": "^5.0.0",
+        "@types/cors": "^2.8.13",
+        "@types/express": "^4.17.17",
+        "@types/node": "^18.13.0",
+        "@types/node-cron": "^3.0.11",
+        "@types/nodemailer": "^6.4.16",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^4.9.5"
+    }
+}
