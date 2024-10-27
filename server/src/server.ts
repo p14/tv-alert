@@ -20,7 +20,7 @@ server.setConfig((app) => {
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
     app.use(cors({
-        origin: ['http://localhost:5173'],
+        origin: [String(process.env.CLIENT_URL)],
         methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
         credentials: true,
     }));
