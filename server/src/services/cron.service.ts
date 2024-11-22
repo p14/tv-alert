@@ -32,7 +32,8 @@ export default class CronService {
     }
 
     private initializeCronJobs() {
-        cron.schedule('0 0 * * *', this.handleDailyPoll.bind(this));
+        cron.schedule('00 00 02 * *', this.handleDailyPoll.bind(this)); // 2AM
+        // cron.schedule('0 0 * * *', this.handleDailyPoll.bind(this));
         // cron.schedule('*/1 * * * *', this.handleDailyPoll.bind(this));
     }
 
