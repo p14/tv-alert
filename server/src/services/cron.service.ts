@@ -32,7 +32,10 @@ export default class CronService {
     }
 
     private initializeCronJobs() {
-        cron.schedule('0 0 * * *', this.handleDailyPoll.bind(this));
+        cron.schedule('10 21 * * *', this.handleDailyPoll.bind(this), {
+            timezone: 'America/New_York'
+        });
+        // cron.schedule('0 0 * * *', this.handleDailyPoll.bind(this));
         // cron.schedule('*/1 * * * *', this.handleDailyPoll.bind(this));
     }
 
