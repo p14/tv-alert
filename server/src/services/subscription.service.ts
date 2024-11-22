@@ -9,10 +9,14 @@ import IntegrationService from './integration.service';
 export default class SubscriptionService {
     private subscriptionRepository: SubscriptionRepository;
 
+    private integrationService: IntegrationService;
+
     constructor(
         @inject(TYPES.Repositories.Subscription) subscriptionRepository: SubscriptionRepository,
+        @inject(TYPES.Services.Integration) integrationService: IntegrationService,
     ) {
         this.subscriptionRepository = subscriptionRepository;
+        this.integrationService = integrationService;
     }
 
     /**
@@ -29,14 +33,12 @@ export default class SubscriptionService {
             return [];
         }
 
-        const integrationService = new IntegrationService();
-
         const { mediaContent, errors } = await subscription.mediaIds
             .reduce(async (accPromise, mediaId) => {
                 const acc = await accPromise;
 
                 try {
-                    const mediaContent = await integrationService.getShow(mediaId);
+                    const mediaContent = await this.integrationService.getShow(mediaId);
                     acc.mediaContent.push({ ...mediaContent });
                 } catch (error) {
                     acc.errors.push(mediaId);

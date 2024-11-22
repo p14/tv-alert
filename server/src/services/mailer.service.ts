@@ -89,7 +89,7 @@ export default class MailerService {
             timeZone: 'UTC'
         });
 
-        await this.transporter.sendMail({
+        const data = await this.transporter.sendMail({
             from: {
                 name: 'TV Alert',
                 address: `${process.env.MAILER_USER}`,
@@ -98,5 +98,7 @@ export default class MailerService {
             subject: `New Episodes of Your Favorite Shows (${formattedDate})`,
             html: buildDailyNotificationEmail({ seriesToday, params }),
         });
+
+        console.log(`Daily notification (${email}) --->`, data);
     }
 }
