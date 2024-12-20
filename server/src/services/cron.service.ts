@@ -32,11 +32,12 @@ export default class CronService {
     }
 
     private initializeCronJobs() {
-        cron.schedule('10 21 * * *', this.handleDailyPoll.bind(this), {
+        // cron.schedule('0 21 * * *', this.handleDailyPoll.bind(this), {
+        //     timezone: 'America/New_York'
+        // });
+        cron.schedule('30 7 * * *', this.handleDailyPoll.bind(this), {
             timezone: 'America/New_York'
         });
-        // cron.schedule('0 0 * * *', this.handleDailyPoll.bind(this));
-        // cron.schedule('*/1 * * * *', this.handleDailyPoll.bind(this));
     }
 
     public async handleDailyPoll(): Promise<void> {
@@ -60,7 +61,13 @@ export default class CronService {
                     .map(async (userSubscription) => {
                         const seriesToday = await this.getSeriesPremieringToday(userSubscription.mediaIds);
                         await this.sendNotificationEmail({ email: userSubscription.email, seriesToday });
-                        sentEmails++;
+                        if (userSubscription.email.toLowerCase() === String(process.env.TEST_EMAIL).toLowerCase()) {
+                            console.info('--->', seriesToday);
+                        }
+
+                        if (seriesToday.length > 0) {
+                            sentEmails++;
+                        }
                     })
             );
 
